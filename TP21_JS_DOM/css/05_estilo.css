@@ -1,0 +1,41 @@
+body{
+    margin: 0;
+    background-color: orange;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    line-height: 1.4em;
+}
+#cont{
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 2em;
+    background-color: white;
+}
+h1{
+    margin: 0;
+}
+nav{
+    margin-top: 1em;
+}
+a{
+    color: inherit;
+    text-decoration: none;
+    display: inline-block;
+    padding: 1em;
+    border-radius: 7%;
+}
+a:hover{
+    background-color: rgb(203, 203, 203);
+}
+#galeria img{
+    width: 600px;
+}
+#galeria div{
+    display: inline-block;
+    border: 2px solid orange;
+    padding: 0.5em;
+    margin: 1em;
+}
+#mod{
+    display: block;
+    margin: 0.5em;
+}

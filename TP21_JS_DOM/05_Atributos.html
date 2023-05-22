@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es-AR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Modificar Atributos con JS</title>
+    <link rel="stylesheet" href="css/05_estilo.css" />
+  </head>
+  <body>
+    <div id="cont">
+      <header>
+        <h1>Modificacion de atributos</h1>
+      </header>
+      <span id="mod">
+        <button id="headOcultar">Ocultar</button>
+        <button id="headMostrar">Mostrar</button>
+      </span>
+      <nav>
+        <a href="">Link 1</a>
+        <a href="">Link 2</a>
+        <a href="">Link 3</a>
+        <a href="">Link 4</a>
+      </nav>
+      <span id="mod">
+        Realinear botones
+        <button id="izquierda">Izquierda</button>
+        <button id="centro">Centro</button>
+        <button id="derecha">Derecha</button>
+      </span>
+      <main>
+        <span id="mod">
+          Tamaño de fuente <button id="aMas">A+</button>
+          <button id="aMenos">A-</button>
+        </span>
+        <p style="font-size: 16px">
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Repellendus
+          iusto et exercitationem corporis voluptas inventore sapiente! Ut
+          suscipit cumque neque natus atque nihil numquam labore alias vitae,
+          dolore omnis mollitia explicabo voluptate asperiores ipsam corrupti
+          rem perferendis perspiciatis necessitatibus quod tempora aliquam.
+          Nihil quidem necessitatibus ex impedit molestias veritatis assumenda
+          vero magnam praesentium error et similique voluptas, culpa officiis
+          nemo eaque natus consequuntur sit laborum, maiores sunt vitae ab
+          autem. Nisi numquam ullam obcaecati, provident perspiciatis doloremque
+          excepturi quasi molestiae fuga assumenda ab deserunt minus voluptas
+          magni maiores consectetur quibusdam, eligendi laboriosam eaque! Vero
+          animi ut atque esse sed non odio, quam autem consequuntur explicabo
+          aliquam veritatis temporibus molestiae perspiciatis quasi error
+          corrupti ab quisquam ex repudiandae expedita praesentium. Magnam,
+          deleniti error! Alias vitae explicabo neque possimus enim quisquam
+          harum amet illo? Veritatis deserunt quis maxime laudantium magni modi
+          porro, culpa praesentium dolore laborum incidunt dicta odit illum nam
+          consequatur.
+        </p>
+      </main>
+      <section id="galeria">
+        <div>
+          <img src="im/im1.jpg" alt="" id="im1" />
+          <span id="mod">
+            Estilo de imagen:
+            <button data-efect="grayscale(100%)" data-im="0">Grises</button>
+            <button data-efect="invert()" data-im="0">Invertir</button>
+            <button data-efect="blur(4px)" data-im="0">Blur</button>
+            <button data-efect="" data-im="0">Ninguno</button>
+          </span>
+        </div>
+        <div>
+          <img src="im/im2.jpg" alt="" id="im2" />
+          <span id="mod">
+            Estilo de imagen:
+            <button data-efect="grayscale(100%)" data-im="1">Grises</button>
+            <button data-efect="invert()" data-im="1">Invertir</button>
+            <button data-efect="blur(4px)" data-im="1">Blur</button>
+            <button data-efect="" data-im="1">Ninguno</button>
+          </span>
+        </div>
+      </section>
+      <span id="mod">
+        Color de fondo <input type="color" name="colorFondo" id="colorFondo" />
+      </span>
+    </div>
+    <script src="script/05_script.js"></script>
+  </body>
+</html>
