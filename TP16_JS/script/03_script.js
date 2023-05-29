@@ -50,7 +50,7 @@ console.log(typeof(numero3));
 console.log(numero1 + numero2 + numero3); */
 
 // conversion a numero
-/* let valor = "-3.1417 PI";
+let valor = "-3.1417 PI";
 console.log(valor, typeof(valor));
 
 let valor1 = Number(valor);
@@ -60,4 +60,4 @@ let valor2 = parseInt(valor);
 console.log(valor2, typeof(valor2));
 
 let valor3 = parseFloat(valor);
-console.log(valor3, typeof(valor3)); */
+console.log(valor3, typeof(valor3));
