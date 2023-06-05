@@ -12,12 +12,14 @@ fs.readFile("./data/texto.txt", "utf-8", (error, data) => {
   }
 });
 
-console.log("2");
+console.log("2");*/
+
+/*console.log("1");
 
 const textoSync = fs.readFileSync("./data/texto.txt", "utf-8");
 console.log(textoSync);
 
-console.log("3"); */
+console.log("2"); */
 
 //--- Creación
 
@@ -53,10 +55,10 @@ console.log("3"); */
 
 //--- Copiar un archivo
 
-fs.writeFileSync("./data/original.txt", "Soy un archivo para copiar");
+/* fs.writeFileSync("./data/original.txt", "Soy un archivo para copiar");
 
 const archivo = fs.createReadStream("./data/original.txt");
-archivo.pipe(fs.createWriteStream("./data/copia.txt"))
+archivo.pipe(fs.createWriteStream("./data/copia.txt")); */
 
 //-- Borrar un archivo
 
@@ -67,3 +69,12 @@ archivo.pipe(fs.createWriteStream("./data/copia.txt"))
     console.log("Archivo borrado");
   }
 }); */
+
+//-- Streams
+
+const readStream = fs.createReadStream(__dirname + "/data/textoLargo.txt");
+
+readStream.on("data", function (porcion) {
+  console.log("porcion leida");
+  console.log(porcion);
+});

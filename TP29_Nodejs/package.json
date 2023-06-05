@@ -1,0 +1,21 @@
+{
+  "name": "server1",
+  "version": "1.0.0",
+  "description": "\"Servidor con node de practica\"",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server",
+    "dev": "nodemon server",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Profe Pablo",
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^2.0.22"
+  },
+  "dependencies": {
+    "date-and-time": "^3.0.0",
+    "mime": "^3.0.0",
+    "uuid": "^9.0.0"
+  }
+}
