@@ -1,41 +1,43 @@
 // Funciones declaradas
 
-/* function holaMundo(){
+function holaMundo(){
     console.log("Hola mundo!!!");
 }
 
-holaMundo(); */
+holaMundo();
 
 // Expresion
 
-/* const saludo = function(){
+const saludo = function(){
     console.log("Hola mundo");
 }
 
 saludo();
 
-console.log(saludo); */
+console.log(saludo());
 
 // Return
 
-/* function calculo(){
+function calculo(){
     let suma = 30 + 20;
-    // return suma;
+    return suma;
 }
 
 console.log(calculo);
 
-console.log(calculo()); */
+console.log(calculo());
 
 // Parametros y argumentos
 
-/* function saludar(nombre){
-    // return "Hola " + nombre;
-    return `Hola ${nombre}`;
+function saludar(nombre){
+    return "Hola " + nombre;
+    let masAcciones = "bloqueadas por el return"
+    // return `Hola ${nombre}`;
 }
-
-let texto = saludar("pablo");
-console.log(texto); */
+saludar("pablo");
+// console.log(saludar("pablo"));
+// let texto = saludar("pablo");
+// console.log(texto);
 
 // sintesis de lo anterior
 /* function saludar(nombre){
@@ -48,28 +50,30 @@ saludar("juan") */
 
 //Calculadora
 
-/* let suma = function(num1, num2){
-    let suma = num1 + num2;
-    return suma;
+let sumar = function(num1, num2){
+    let calculo = num1 + num2;
+    return calculo;
 }
 
-console.log(suma(3, 3)); */
+console.log(sumar(3, 3));
 
-/* let resta = function(num1, num2){
-    let resta = num1 - num2;
-    return resta;
+let restar = function(num1, num2){
+    let restar = num1 - num2;
+    return restar;
+    // return num1 - num2;
 }
 
-console.log(resta(6, 3)); */
+console.log(restar(6, 3));
 
 
 //Calculadora
 
-/* function calculadora(num1, num2, operacion){
-    let resultado;
+function calculadora(num1, num2, operacion){
+    // let resultado;
     switch(operacion){
         case "suma":
-        resultado = num1 + num2;
+        // resultado = num1 + num2;
+        return num1 + num2;
         break;
         case "resta":
         resultado = num1 - num2;
@@ -81,10 +85,10 @@ console.log(resta(6, 3)); */
         resultado = num1 / num2;
         break;
     };
-    return resultado;
+    // return resultado;
 }
 
-console.log(calculadora(2, 2, "resta")); */
+console.log(calculadora(2, 2, "suma"));
 
 // Funcion de Flecha
 
@@ -111,11 +115,11 @@ const resta = (a, b) => a - b;
 const multiplicacion = (a, b) => a * b;
 const division = (a, b) => a / b;
 
-const calculadora = (a, b, operacion) =>{
+const calculadora2 = (a, b, operacion) =>{
     return operacion(a, b);
 }
 
-console.log(calculadora(3, 3, suma));
-console.log(calculadora(3, 3, resta));
-console.log(calculadora(3, 3, multiplicacion));
-console.log(calculadora(3, 3, division));
+console.log(calculadora2(3, 3, suma));
+console.log(calculadora2(3, 3, resta));
+console.log(calculadora2(3, 3, multiplicacion));
+console.log(calculadora2(3, 3, division));

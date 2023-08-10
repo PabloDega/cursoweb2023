@@ -1,28 +1,34 @@
 // Condicional "if"
 
 /* if(2 > 1){
-    console.log("2 es mayor que uno");
+    console.log("2 es mayor que 1");
 } */
 
 // If else
 
 /* let num1 = 50;
-let num2 = 10; */
+let num2 = 10;
 
-/* let num1 = window.prompt("Ingresar numero 1");
-let num2 = window.prompt("Ingresar numero 2"); */
-
-/* if(num1 > num2){
+if(num1 > num2){
     console.log("numero 1 mayor que numero 2");
 } else {
     console.log("numero 2 mayor que numero 1");
 } */
 
+/* let num3 = window.prompt("Ingresar numero 1");
+let num4 = window.prompt("Ingresar numero 2");
+
+if(num3 > num4){
+    console.log(num3 + " es mayor que " + num4)
+} else {
+    console.log(num4 + " es mayor que " + num3)
+} */
+
 
 // If else if
 
-// let semaforo = "verde";
-/* let semaforo = window.prompt("Ingresar luz del semaforo");
+/* let semaforo = "verde";
+// let semaforo = window.prompt("Ingresar luz del semaforo");
 
 if(semaforo == "verde"){
     console.log("Puede avanzar")
@@ -67,19 +73,20 @@ switch(semaforo){
 
 // Operador Ternario
 
-// let edad = window.prompt("Edad");
+let edad = window.prompt("Edad");
 
-// /* let respuesta;
+let respuesta;
 
-// if(edad >= 18){
-//     respuesta = "Puede ingresar";
-// } else {
-//     respuesta = "Rechazado";
-// } */
+if(edad >= 18){
+    // let respuesta = "lalala"
+    respuesta = "Puede ingresar";
+} else {
+    respuesta = "Rechazado";
+}
 
 // let respuesta = edad >= 18 ? "Puede ingresar" : "Recahzado";
 
-// console.log(respuesta);
+console.log(respuesta);
 
 
 // Operadores

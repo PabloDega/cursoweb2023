@@ -1,8 +1,17 @@
-/* // nombre = "Tomas";
-let nombre;
-// nombre = "Pablo";
-window.alert(nombre); */
 
+nombre = "Tomas";
+var nombre;
+console.log(nombre)
+
+apellido = "Gonzalez";
+var apellido;
+console.log(apellido)
+// nombre = "Pablo";
+// window.alert(nombre);
+
+let dato;
+console.log(dato)
+console.log(data)
 /* let nombre;
 nombre = window.prompt("Ingresá tu nombre:");
 window.alert("Tu nombre es " + nombre);
@@ -31,7 +40,7 @@ window.alert("El resultado es: " + suma);
 document.write("El resultado es: " + suma); */
 
 
-// Scoope - bloques de codigo {}
+/* // Scoope - bloques de codigo {}
 let numero = 12;
 console.log(numero);
 {
@@ -50,4 +59,6 @@ console.log(letra)
     console.log(letra);
 }
 // letra = "C";
-console.log(letra);
+console.log(letra); */
+
+// console.log(nombre);

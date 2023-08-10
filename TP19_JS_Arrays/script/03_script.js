@@ -1,4 +1,4 @@
-let miArray = [1, 2, 3, 4, 5, 6];
+let miArray = [1, 7, 5, 20];
 console.log(miArray);
 
 let miSet = new Set(miArray);
@@ -25,7 +25,7 @@ console.log(miSet);
 miArray.splice(3, 1);
 console.log(miArray);
 
-miSet.delete(4);
+miSet.delete(20);
 console.log(miSet);
 
 //--- Mediar largo
@@ -36,12 +36,9 @@ console.log(miSet.size);
 
 //--- buscar valor
 
-console.log(miArray.find(buscarEnArray));
-function buscarEnArray(valor){
-    return valor == 3;
-}
+console.log(miArray.find(valor => valor == 7));
 
-console.log(miSet.has(3));
+console.log(miSet.has(7));
 
 //--- vaciar contenido
 

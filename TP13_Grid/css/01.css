@@ -3,8 +3,7 @@ body{
 }
 .galeria{
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    height: 100vh;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
     gap: 1em;
 }
 .galeria img{
