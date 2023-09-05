@@ -1,13 +1,16 @@
 let form = document.querySelector("form");
 
-form.addEventListener("submit", (event) => {event.preventDefault(); validar()})
+form.addEventListener("submit", (event) => {
+    event.preventDefault();
+    validar();
+})
 
 function validar(){
-    let nombre = document.querySelector("#nombre");
-    let apellido = document.querySelector("#apellido");
-    let dni = document.querySelector("#dni");
-    let letrasAprobadas = "abcdefghijklmnñoprqstuvwxyzáéíóúäëïöü ".split("");
-    let numerosAprobados = "1234567890".split("");
+    const nombre = document.querySelector("#nombre");
+    const apellido = document.querySelector("#apellido");
+    const dni = document.querySelector("#dni");
+    const letrasAprobadas = "abcdefghijklmnñoprqstuvwxyzáéíóúäëïöü ".split("");
+    const numerosAprobados = "1234567890".split("");
 
 
     // verificar campos vacios

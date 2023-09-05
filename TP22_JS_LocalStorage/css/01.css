@@ -1,0 +1,25 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+#cont{
+    background-color: lightseagreen;
+    width: 100%;
+    min-height: 100vh;
+    padding: 2em;
+    display: flex;
+    flex-direction: column;
+    gap:1em;
+}
+
+#cont button{
+    width: fit-content;
+    padding: 0.5em;
+    cursor: pointer;
+}

@@ -1,8 +1,8 @@
-localStorage.setItem("Nombre", "Pablo");
+localStorage.setItem("Test", "Texto de ejmeplo");
 
-document.querySelector("#p1").textContent = localStorage.getItem("Nombre");
+document.querySelector("#p1").textContent = localStorage.getItem("Test");
 
-const datos1 = {
+const informacion = {
     nombre: "Pablo",
     apellido: "Deganis",
     mail: "pablodeganis@yahoo.com.ar",
@@ -10,24 +10,39 @@ const datos1 = {
     telefono: 46421317
 };
 
-document.querySelector("#grabar").addEventListener("click", () =>{grabar(datos1)});
+document.querySelector("#grabar").addEventListener("click", () => { grabar(informacion) });
 
-document.querySelector("#obtener").addEventListener("click", () =>{obtener(datos1)});
+document.querySelector("#obtener").addEventListener("click", () => { obtener() });
 
-document.querySelector("#borrar").addEventListener("click", () =>{localStorage.clear(); p2.innerHTML = ""});
+document.querySelector("#grabarJson").addEventListener("click", () => { localStorage.setItem("JSON", JSON.stringify(informacion)) });
 
-let p2 = document.querySelector("#p2");
+document.querySelector("#obtenerJson").addEventListener("click", () => { obtenerJson() });
 
-function grabar(a){
-    for(x in a){
-        localStorage.setItem(x, a[x]);
+document.querySelector("#borrar").addEventListener("click", () => {
+    localStorage.clear();
+    destino1.innerHTML = "";
+    destino2.innerHTML = "";
+});
+
+const destino1 = document.querySelector("#destino1");
+const destino2 = document.querySelector("#destino2");
+
+function grabar(datos) {
+    for (dato in datos) {
+        localStorage.setItem(dato, datos[dato]);
     }
 }
 
-function obtener(){
-   for(let i = 0; i < localStorage.length; i++){
-    let clave = localStorage.key(i);
-    let respuesta = clave + ": " + localStorage.getItem(clave) + "<br>";
-    p2.innerHTML += respuesta;
-   }
+function obtener() {
+    destino1.innerHTML = "";
+    for (let i = 0; i < localStorage.length; i++) {
+        let clave = localStorage.key(i);
+        let respuesta = clave + ": " + localStorage.getItem(clave) + "<br>";
+        destino1.innerHTML += respuesta;
+    }
+}
+
+function obtenerJson() {
+    let datos = localStorage.getItem("JSON");
+    destino2.innerHTML = datos;
 }

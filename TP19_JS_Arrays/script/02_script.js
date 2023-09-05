@@ -2,7 +2,7 @@
 
 let items = ["rojo", "naranja", "amarillo", "verde", "azul", "violeta"];
 
-items.forEach((item) => console.log(item));
+/* items.forEach((item) => console.log(item)); */
 
 /* function consola(item){
     console.log(item);
@@ -12,7 +12,7 @@ items.forEach(consola); */
 
 
 const numeros = [2, 9, 12, 5, 8, 3];
-console.log(numeros);
+/* console.log(numeros);
 
 let unir = numeros.join();
 console.log(unir);
@@ -21,13 +21,15 @@ let separar = unir.split(",");
 console.log(separar);
 
 let renumerado = [];
-separar.forEach((numero, i) => {renumerado[i] = Number(numero)});
-console.log(renumerado);
+separar.forEach((numero, i) => {
+    // renumerado[i] = Number(numero);
+    renumerado.push(Number(numero))});
+console.log(renumerado); */
 
 
 //--- map
 
-let items2 = items;
+/* let items2 = items;
 console.log(items, items2);
 items.push(19);
 console.log(items, items2);
@@ -38,20 +40,20 @@ let items3 = Array.from(items);
 console.log(items, items3);
 items.push("cian");
 console.log(items, items3);
-
+ */
 // Map, nuevo array pasado por un callback
 /* let items4 = items.map(mapeado);
 function mapeado(a){
     return a;
 } */
-let items4 = items.map(a => a);
+/* let items4 = items.map(a => a);
 
 console.log(items, items4);
 items.push(100);
 console.log(items, items4);
 
 let items5 = items.map(a => "color: " + a);
-console.log(items5);
+console.log(items5); */
 
 //--- find
 
@@ -82,15 +84,20 @@ console.log(items.indexOf("papas fritas"));
 
 //--- Busqueda en Array de Array
 
-const datos = [["Pablo", 1234], ["Juan", 2345], ["Rodrigo", 3456]];
+const datos = [
+    ["Pablo", 1234],
+    ["Juan", 2345],
+    ["Rodrigo", 3456]
+];
 console.log(datos);
+console.log(datos[1][1]);
 
 function buscarNumero(nombre){
     datos.forEach((dato, i) => {
         let respuesta = dato.indexOf(nombre);
         if(respuesta >= 0){
-            console.log(datos[i][dato.indexOf(nombre)+1]);
+            console.log(datos[i][respuesta+1]);
         }
     })
 }
-buscarNumero("Juan");
+buscarNumero("Pablo");
