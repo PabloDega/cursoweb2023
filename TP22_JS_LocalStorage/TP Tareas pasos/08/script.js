@@ -92,6 +92,7 @@ function tareaCambiarEstado(e) {
 function tareaBorrar(e) {
     let orden = tareas.findIndex(dato => dato.id == e.target.dataset.id);
     tareas.splice(orden, 1);
+    localStorage.setItem("Tareas", JSON.stringify(tareas));
     rendertabla();
     asignarEscuchas();
 }

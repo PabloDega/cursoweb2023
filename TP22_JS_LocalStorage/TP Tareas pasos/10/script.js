@@ -4,6 +4,14 @@ document.querySelector("#agregarTareaBtn").addEventListener("click", agregarTare
 
 const inputTarea = document.querySelector("#tareaInput");
 function agregarTarea() {
+    // 1a - Validar input (--> 1b en html)
+    if(inputTarea.value == ""){
+        // 1c - Insertar emnsaje de error (--> 1d en CSS)
+        document.querySelector("#inputError").innerText = "Nombrar tarea en el cuadro de texto";
+        return;
+    }
+    // 1e - restaurar inputError
+    document.querySelector("#inputError").innerText = "";
     let ultimoNumero = 0;
     if (tareas.length > 0) {
         ultimoNumero = tareas[tareas.length - 1].id;
@@ -96,11 +104,8 @@ function tareaBorrar(e) {
     asignarEscuchas();
 }
 function tareaEditar(e) {
-    // 1 - Agregar carga dinamica de contenido al cuadro Edicion
     let orden = tareas.findIndex(dato => dato.id == e.target.dataset.id);
     let datos = tareas[orden];
-    // console.log(datos);
-    // 1b - Insertar datos en elementos
     document.querySelector("#edicionId").innerText = "Tarea Nº " + datos.id;
     document.querySelector("#edicionTarea").value = datos.tarea;
 
@@ -112,7 +117,6 @@ function tareaEditar(e) {
         document.querySelector("#edicionOpcionComp").setAttribute("selected", "");
         document.querySelector("#edicionOpcionPend").removeAttribute("selected", "");
     }
-    // 1c - Insertar orden de aray del elemento como dataset en el boton Aplicar
     document.querySelector("#edicionAplicar").setAttribute("data-id", orden)
 
     document.querySelector("#vistaEdicion").style.display = "flex";
@@ -122,20 +126,22 @@ document.querySelector("#edicionCancelar").addEventListener("click", () => {
     document.querySelector("#vistaEdicion").style.display = "none";
 })
 
-// 2 - Asignar evento Aplicar de Edicion
 document.querySelector("#edicionAplicar").addEventListener("click", (e) => {
-    // 2a - Leer datos de los objetos
     let tareaEditada = document.querySelector("#edicionTarea").value;
+    // 2a - Validar Input en cuadro de edición (--> 2b en html)
+    if(tareaEditada == ""){
+        // 2c - Insertar texto de error (--> 2d en CSS)
+        document.querySelector("#edicionError").innerHTML = "El nombre de la tarea<br> no puede quedar vacío";
+        return;
+    }
+    // 2e - restaurar edicion error
+    document.querySelector("#edicionError").innerHTML = "";
     let estadoEditado = document.querySelector("#edicionEstado").value;
     let orden = e.target.dataset.id
-    // console.log(orden, tareaEditada, estadoEditado);
-    // 2b Cerrar cuadro de edicion
     document.querySelector("#vistaEdicion").style.display = "none";
-    // 2c - Actualizar datos del Objeto
     tareas[orden].tarea = tareaEditada;
     tareas[orden].estado = estadoEditado;
     localStorage.setItem("Tareas", JSON.stringify(tareas));
-    // 2d - Actualizar vista
     rendertabla();
     asignarEscuchas();
 })

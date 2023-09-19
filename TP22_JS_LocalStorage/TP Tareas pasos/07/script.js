@@ -104,6 +104,7 @@ function tareaBorrar(e){
     let resultado = tareas.findIndex(dato => dato.id == e.target.dataset.id)
     // console.log(tareas[resultado])
     tareas.splice(resultado, 1);
+    localStorage.setItem("Tareas", JSON.stringify(tareas));
     rendertabla();
     asignarEscuchas();
     //--- ver que ahora se repiten los numeros de id porque se basan en el oden sobre el array
