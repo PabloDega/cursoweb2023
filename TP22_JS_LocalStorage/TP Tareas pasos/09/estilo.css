@@ -1,0 +1,103 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: darkblue;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    display: flex;
+    justify-content: center;
+}
+
+#cont {
+    background-color: white;
+    width: 100%;
+    max-width: 600px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    padding: 1em;
+}
+
+#agregarTarea {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    background-color: lightblue;
+    padding: 1em;
+}
+
+.btn {
+    font-weight: 600;
+    padding: 0.3em;
+    cursor: pointer;
+    width: fit-content;
+    transition: 0.5s
+}
+
+.btn:hover {
+    background-color: black;
+}
+
+.azul {
+    background-color: blue;
+    color: white;
+}
+
+.verde {
+    background-color: green;
+    color: white;
+}
+
+.naranja {
+    background-color: orangered;
+    color: white;
+}
+
+input {
+    padding: 0.5em;
+    border-radius: 0.5em;
+}
+
+#tareasTabla {
+    width: 90%;
+    margin: 0 auto;
+    border-collapse: collapse;
+}
+
+#tareasTabla th,
+#tareasTabla td {
+    padding: 0.5em;
+}
+
+#tareasTabla tr {
+    border-bottom: 1px solid gray;
+}
+
+#tareasTabla thead {
+    background-color: blue;
+    color: white
+}
+
+#vistaEdicion {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    display: none;
+}
+
+#contEdicion {
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    padding: 2em;
+    border-radius: 1em;
+}

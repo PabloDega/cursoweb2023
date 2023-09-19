@@ -3,10 +3,21 @@ let tareas = JSON.parse(localStorage.getItem("Tareas")) || [];
 document.querySelector("#agregarTareaBtn").addEventListener("click", agregarTarea)
 
 const inputTarea = document.querySelector("#tareaInput");
-
+// 3 - Modificamos la logica en la asginacion de numero de tarea
+/* 3a --> 
+console.log(tareas.length);
+console.log(tareas[tareas.length]);
+console.log(tareas[tareas.length - 1]).id; */
+console.log(tareas.length);
 function agregarTarea() {
+    // 3b - Verifico si al array esta vacio, si no lo está encuentro el ultimo numero de id
+    let ultimoNumero = 0;
+    if(tareas.length > 0){
+        ultimoNumero = tareas[tareas.length - 1].id;
+    }
     let tarea = {
-        id: tareas.length,
+        // 3c - reasginamos el numero
+        id: ultimoNumero + 1,
         tarea: inputTarea.value,
         estado: "Pendiente",
     }
@@ -22,8 +33,6 @@ const tableBody = document.querySelector("#tareasTabla tbody");
 function rendertabla() {
     tableBody.innerHTML = "";
     tareas.forEach((tarea) => {
-        // 3a - pasar dataset con id de objeto al renderizar
-        // 7 - Asignar clase de color de acuerdo al estado
         let claseColor = "naranja"
         if(tarea.estado == "Completada"){claseColor = "verde"}
         let fila = `<tr>
@@ -45,12 +54,9 @@ function rendertabla() {
 
 rendertabla();
 
-//--- Agregar funcionalidad a los botones
 function asignarEscuchas() {
     document.querySelectorAll(".tablaBtnEstado").forEach((boton) => {
         boton.addEventListener("click", (e) => {
-            console.log("Test boton Estado");
-            //1 - Llamar funcion para modular codigo
             tareaCambiarEstado(e);
         })
     })
@@ -62,46 +68,43 @@ function asignarEscuchas() {
     })
 
     document.querySelectorAll(".tablaBtnBorrar").forEach((boton) => {
-        boton.addEventListener("click", () => {
-            console.log("Test boton Borrar")
+        boton.addEventListener("click", (e) => {
+            // 1 - Agragamos funcion de borrado
+            tareaBorrar(e);
         })
     })
 }
 
 asignarEscuchas();
 
-//  2 - Funciones para los botones
-
 function tareaCambiarEstado(e){
-    //-- ver la info que llega con el evento
-    // console.log(e.target);
-    // console.log(e.target.classList);
     let tareaBoton = e.target;
     if(tareaBoton.innerText == "Pendiente"){
-        // 2 - agregar funcionalidad estética
-        // console.log("ping")
         tareaBoton.classList.remove("naranja");
         tareaBoton.classList.add("verde");
         tareaBoton.innerText = "Completada";
-        // 3b - modificar arrray y salvar en localStorage
-        // ---- leer el data set del objeto para buscar indice en el array
-        // console.log(e.target.dataset.id);
         let orden = tareas.findIndex(dato => dato.id == e.target.dataset.id);
-        // console.log(tareas[orden])
         tareas[orden].estado = "Completada";
-        // console.log(tareas)
     } else {
-        // 4 - Hacer lo mismo para dejar en modo "Pendiente"
         tareaBoton.classList.remove("verde");
         tareaBoton.classList.add("naranja");
         tareaBoton.innerText = "Pendiente";
         let orden = tareas.findIndex(dato => dato.id == e.target.dataset.id);
         tareas[orden].estado = "Pendiente";
-        // console.log(tareas)
     }
-    // 5 - grabar modificacion en localStorage
     localStorage.setItem("Tareas", JSON.stringify(tareas));
-    // 6 - Renderizar tabla
     rendertabla();
     asignarEscuchas();
+}
+// 2 - Creamos la funcion
+function tareaBorrar(e){
+    //--- Eliminamos dato del array en localStorage y recargamos los datos
+    // console.log(e)
+    // console.log(e.target.dataset.id)
+    let resultado = tareas.findIndex(dato => dato.id == e.target.dataset.id)
+    // console.log(tareas[resultado])
+    tareas.splice(resultado, 1);
+    rendertabla();
+    asignarEscuchas();
+    //--- ver que ahora se repiten los numeros de id porque se basan en el oden sobre el array
 }

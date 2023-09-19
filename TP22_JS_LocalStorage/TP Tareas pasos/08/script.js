@@ -3,10 +3,13 @@ let tareas = JSON.parse(localStorage.getItem("Tareas")) || [];
 document.querySelector("#agregarTareaBtn").addEventListener("click", agregarTarea)
 
 const inputTarea = document.querySelector("#tareaInput");
-
 function agregarTarea() {
+    let ultimoNumero = 0;
+    if (tareas.length > 0) {
+        ultimoNumero = tareas[tareas.length - 1].id;
+    }
     let tarea = {
-        id: tareas.length,
+        id: ultimoNumero + 1,
         tarea: inputTarea.value,
         estado: "Pendiente",
     }
@@ -22,10 +25,8 @@ const tableBody = document.querySelector("#tareasTabla tbody");
 function rendertabla() {
     tableBody.innerHTML = "";
     tareas.forEach((tarea) => {
-        // 3a - pasar dataset con id de objeto al renderizar
-        // 7 - Asignar clase de color de acuerdo al estado
         let claseColor = "naranja"
-        if(tarea.estado == "Completada"){claseColor = "verde"}
+        if (tarea.estado == "Completada") { claseColor = "verde" }
         let fila = `<tr>
                     <td>${tarea.id}</td>
                     <td>${tarea.tarea}</td>
@@ -45,63 +46,64 @@ function rendertabla() {
 
 rendertabla();
 
-//--- Agregar funcionalidad a los botones
 function asignarEscuchas() {
     document.querySelectorAll(".tablaBtnEstado").forEach((boton) => {
         boton.addEventListener("click", (e) => {
-            console.log("Test boton Estado");
-            //1 - Llamar funcion para modular codigo
             tareaCambiarEstado(e);
         })
     })
 
     document.querySelectorAll(".tablaBtnEditar").forEach((boton) => {
-        boton.addEventListener("click", () => {
-            console.log("Test boton Editar")
+        boton.addEventListener("click", (e) => {
+            // 3 - Asignamos funcion editar
+            tareaEditar(e);
         })
     })
 
     document.querySelectorAll(".tablaBtnBorrar").forEach((boton) => {
-        boton.addEventListener("click", () => {
-            console.log("Test boton Borrar")
+        boton.addEventListener("click", (e) => {
+            tareaBorrar(e);
         })
     })
 }
 
 asignarEscuchas();
 
-//  2 - Funciones para los botones
-
-function tareaCambiarEstado(e){
-    //-- ver la info que llega con el evento
-    // console.log(e.target);
-    // console.log(e.target.classList);
+function tareaCambiarEstado(e) {
     let tareaBoton = e.target;
-    if(tareaBoton.innerText == "Pendiente"){
-        // 2 - agregar funcionalidad estética
-        // console.log("ping")
+    if (tareaBoton.innerText == "Pendiente") {
         tareaBoton.classList.remove("naranja");
         tareaBoton.classList.add("verde");
         tareaBoton.innerText = "Completada";
-        // 3b - modificar arrray y salvar en localStorage
-        // ---- leer el data set del objeto para buscar indice en el array
-        // console.log(e.target.dataset.id);
         let orden = tareas.findIndex(dato => dato.id == e.target.dataset.id);
-        // console.log(tareas[orden])
         tareas[orden].estado = "Completada";
-        // console.log(tareas)
     } else {
-        // 4 - Hacer lo mismo para dejar en modo "Pendiente"
         tareaBoton.classList.remove("verde");
         tareaBoton.classList.add("naranja");
         tareaBoton.innerText = "Pendiente";
         let orden = tareas.findIndex(dato => dato.id == e.target.dataset.id);
         tareas[orden].estado = "Pendiente";
-        // console.log(tareas)
     }
-    // 5 - grabar modificacion en localStorage
     localStorage.setItem("Tareas", JSON.stringify(tareas));
-    // 6 - Renderizar tabla
     rendertabla();
     asignarEscuchas();
 }
+
+function tareaBorrar(e) {
+    let orden = tareas.findIndex(dato => dato.id == e.target.dataset.id);
+    tareas.splice(orden, 1);
+    rendertabla();
+    asignarEscuchas();
+}
+// 4 - Crear funcion
+function tareaEditar(e) {
+    // 4a -- Mostrar pantalla de Edicion
+    document.querySelector("#vistaEdicion").style.display = "flex";
+}
+
+// 5 - Dar funcion al boton cancelar de pantalla de Edicion
+document.querySelector("#edicionCancelar").addEventListener("click", () => {
+    document.querySelector("#vistaEdicion").style.display = "none";
+})
+
+// 6 NOTA: El contenido es aún estático
